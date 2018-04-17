@@ -1,0 +1,2 @@
+# bozkurtbot
+Bozkurt yönetici botu
