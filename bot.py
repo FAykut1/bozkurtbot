@@ -1,7 +1,9 @@
 import discord
 from discord import Game
+from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
+import chatfilter
 
 buyukAlfabe = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ"
 kucukAlfabe = "abcçdefgğhıijklmnoöprsştuüvyz"
@@ -18,7 +20,7 @@ def lower(text:str):
 
 bot = Bot(command_prefix='#')
 ##Kötü kelimeler buraya
-chat_filter = ["şerefsizler","orospu çocukları","ibne","piç","göt","yarrak","orospu"]
+chat_filter = chatfilter.chat_filters
 ads_filter = ["com/","gg/","net/","gg/","org/","http"]
 bypass_list = []
 
@@ -68,7 +70,7 @@ async def bilgilerim(ctx,user:discord.Member=None):
 
 @bot.command(pass_context=True)
 async def bilgi(ctx,user:discord.Member):
-    embed = discord.Embed(title=user.name,description="Bunları buldum reis.")
+    embed = discord.Embed(title=user.name,description="Bunları buldum reis.",color=0x00ff00)
     embed.add_field(name="İsim",value=user.name,inline=True)
     embed.add_field(name="ID",value=user.id,inline=True)
     embed.add_field(name="Durum", value=user.status, inline=True)
@@ -77,8 +79,19 @@ async def bilgi(ctx,user:discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await bot.say(embed=embed)
 
+@bot.command()
+async def yardim():
+    embed = discord.Embed(title="Komutlar",description="Kullanabileceğiniz komutlar aşağıdadır.",color=0x00ff00)
+    embed.add_field(name="Genel",value="""bilgi (@nickname)
+bilgilerim
+havalı (@nickname)""")
+    await bot.say(embed=embed)
 
+@bot.command(pass_context=True)
+async def kick(ctx,user:discord.Member):
+    if ctx.message.author.id == "349602653107388416":
+        await bot.kick(user)
+    else:
+        await bot.say("You have not authority.")
 bot.run("NDM1NTQ5MDc0MTEyOTA1MjM5.DbakRQ.OsJ2CZYXBWuoYDTGmoNLiGOQ2NU")
-
-
-
+##349602653107388416myid
