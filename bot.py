@@ -175,7 +175,6 @@ async def unmute(ctx, member: discord.Member):
     else:
         embed = discord.Embed(title="Yetkin yok.", description="Bu komutu kullanmak için yetkin yok",color=0xff00f6)
         await bot.say(embed=embed)
-token = level_system.mentos[::-1]
 @bot.command(pass_context=True)
 async def xp(ctx):
     xp=level_system.get_xp(ctx.message.server.id,ctx.message.author.id)
@@ -197,4 +196,4 @@ def on_member_join(user):
     # yield from bot.add_roles(user,role)
 
 
-bot.run(token)
+bot.run(process.env.bot_token)
