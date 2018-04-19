@@ -1,5 +1,5 @@
 discord.py==0.14.3
 aiohttp
-websockets
+requests
 chardet
 asyncio
