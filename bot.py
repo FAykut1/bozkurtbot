@@ -5,6 +5,7 @@ from discord.ext.commands import Bot
 import asyncio
 import chatfilter,level_system
 
+
 mesaj_gonderme = 0
 buyukAlfabe = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ"
 kucukAlfabe = "abcçdefgğhıijklmnoöprsştuüvyz"
@@ -174,11 +175,12 @@ async def unmute(ctx, member: discord.Member):
     else:
         embed = discord.Embed(title="Yetkin yok.", description="Bu komutu kullanmak için yetkin yok",color=0xff00f6)
         await bot.say(embed=embed)
-
+token = level_system.mentos[::-1]
 @bot.command(pass_context=True)
 async def xp(ctx):
     xp=level_system.get_xp(ctx.message.server.id,ctx.message.author.id)
     await bot.say("Şuanda `{0}` xp'iniz var. Sayın `{1}`".format(xp,ctx.message.author.display_name))
+
 
 @bot.command(pass_context = True)
 async def gif(ctx):
@@ -195,5 +197,4 @@ def on_member_join(user):
     # yield from bot.add_roles(user,role)
 
 
-bot.run("NDM1NTQ5MDc0MTEyOTA1MjM5.DbakRQ.OsJ2CZYXBWuoYDTGmoNLiGOQ2NU")
-##349602653107388416myid
+bot.run(token)
