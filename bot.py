@@ -93,5 +93,5 @@ async def kick(ctx,user:discord.Member):
         await bot.kick(user)
     else:
         await bot.say("You have not authority.")
-bot.run("NDM1NTQ5MDc0MTEyOTA1MjM5.DbakRQ.OsJ2CZYXBWuoYDTGmoNLiGOQ2NU")
+bot.run("NDM1NTQ5MDc0MTEyOTA1sd")
 ##349602653107388416myid
