@@ -1,5 +1,7 @@
 discord.py==0.16.12
+pip
 aiohttp
 requests
 chardet
 asyncio
+colorlog
