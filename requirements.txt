@@ -1,5 +1,4 @@
-heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt
-discord.py==0.14.3
+discord.py==0.16.12
 aiohttp
 requests
 chardet
