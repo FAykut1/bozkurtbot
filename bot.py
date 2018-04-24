@@ -18,4 +18,4 @@ async def ping(ctx):
     await bot.say("Pong")
 
 
-bot.run("NDM1NTQ5MDc0MTEyOTA1MjM5.Db9hJg.hFq_XXOVl3soad_YT28k0h5vMHI")
+bot.run("NDM1NTQ5MDc0MTasdasdI")
