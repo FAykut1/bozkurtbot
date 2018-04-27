@@ -495,4 +495,4 @@ async def bakiyem(ctx):
 #     else:
 #         await bot.say("Reis yetkin yok be. Olsa biliyon yani seni kırmam.")
 
-bot.run(process.env.token)
+bot.run('token')
