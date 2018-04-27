@@ -424,7 +424,7 @@ async def gif(ctx):
 def on_member_join(user):
     yield from bot.send_message(user,"**Hey discord sunucumuza hoşgeldin.\n**Bu botu kendi sunucunuza eklemek için https://discordapp.com/api/oauth2/authorize?client_id=435549074112905239&permissions=8&scope=bot\n**İyi eğlenceler.\n{0}".format(bot.user.name))
     yield from bot.send_message(user,"""Lütfen discordumuzda lol nick'inizi bildiriniz. Bunu yapmak için. #lol "NickName" (tırnak işareti gereklidir). """)
-    yield from bot.send_message(user.channel,"Sunucumuza hoş geldin.")
+    yield from bot.say("Sunucumuza hoş geldin")
     add_money(user.server.id,user.id,10)
 
     # role = discord.utils.get(user.server.roles, name='vasifsiz')
