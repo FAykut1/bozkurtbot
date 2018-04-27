@@ -241,7 +241,7 @@ async def on_ready():
                     online += 1
         await bot.close()
         
-    await bot.change_presence(game=Game(name="{} online user".format(a)))
+    await bot.change_presence(game=Game(name="{} online user".format(online)))
 
 @bot.event
 async def on_message(message):
