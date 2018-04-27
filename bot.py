@@ -3,8 +3,6 @@ from discord import Game
 from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
-import chatfilter,background,server_option
-
 
 mesaj_gonderme = 0
 buyukAlfabe = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ"
