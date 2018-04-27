@@ -229,13 +229,16 @@ def ligogren(username):
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(game=Game(name="Basterd ile"))
+    
     print("Ready when you are xd")
     print("I am running on " + bot.user.name)
     print(bot.user.id)
+    a = 0
     for server in bot.servers:
         servername = server.name
+        a+=1
         print(servername)
+    await bot.change_presence(game=Game(name="{} online dc".format(a)))
 
 @bot.event
 async def on_message(message):
