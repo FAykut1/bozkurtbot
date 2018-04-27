@@ -442,7 +442,7 @@ async def ban(ctx, member: discord.Member):
 async def unban(ctx, member: discord.Member):
     if ctx.message.author.server_permissions.administrator:
         await bot.unban(member.server,member)
-        embed = discord.Embed(title="Kullanıcı banlandı!",description="**{1}** tarafından banlandı **{0}**!".format(member, ctx.message.author.display_name),color=0xff00f6)
+        embed = discord.Embed(title="Kullanıcı banını kaldırdınız!",description="**{1}** tarafından ban kaldırıldı **{0}**!".format(member, ctx.message.author.display_name),color=0xff00f6)
         await bot.say(embed=embed)
     else:
         await bot.say("Yetkin yok reis")
