@@ -364,7 +364,7 @@ async def yardim():
 async def yardim_mod(ctx):
     if ctx.message.author.server_permissions.administrator:
         embed = discord.Embed(title="Admin Komutları",description="Kullanabileceğiniz komutlar aşağıdadır.",color=0x00ff00)
-        embed.add_field(name="Admin Özel",value="#kick @name\n#mute @name\n#unmute @name\n#ban @name\n#sil (sayı) -kaç mesaj silinsin-")
+        embed.add_field(name="Admin Özel",value="#kick @name\n#mute @name\n#unmute @name\n#ban @name\n#unbun @name\n#sil (sayı) -kaç mesaj silinsin-")
         await bot.say(embed=embed)
     else:
         bot.say("Yetkin yok reis.")
@@ -433,6 +433,15 @@ def on_member_join(user):
 async def ban(ctx, member: discord.Member):
     if ctx.message.author.server_permissions.administrator:
         await bot.ban(member)
+        embed = discord.Embed(title="Kullanıcı banlandı!",description="**{1}** tarafından banlandı **{0}**!".format(member, ctx.message.author.display_name),color=0xff00f6)
+        await bot.say(embed=embed)
+    else:
+        await bot.say("Yetkin yok reis")
+        
+@bot.command(pass_context=True)
+async def unban(ctx, member: discord.Member):
+    if ctx.message.author.server_permissions.administrator:
+        await bot.unban(member.server,member)
         embed = discord.Embed(title="Kullanıcı banlandı!",description="**{1}** tarafından banlandı **{0}**!".format(member, ctx.message.author.display_name),color=0xff00f6)
         await bot.say(embed=embed)
     else:
