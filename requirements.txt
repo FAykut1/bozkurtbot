@@ -5,3 +5,4 @@ requests
 chardet
 asyncio
 colorlog
+BeautifulSoup
