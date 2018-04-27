@@ -233,7 +233,7 @@ async def on_ready():
     print("Ready when you are xd")
     print("I am running on " + bot.user.name)
     print(bot.user.id)
-    a = 0
+    online = 0
 
     for server in bot.servers:
         for member in server.members:
