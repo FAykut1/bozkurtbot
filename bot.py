@@ -236,9 +236,11 @@ async def on_ready():
     a = 0
     for server in bot.servers:
         servername = server.name
-        a+=1
         print(servername)
-    await bot.change_presence(game=Game(name="{} online dc".format(a)))
+        for member in server.members:
+            a+=1
+        
+    await bot.change_presence(game=Game(name="{} online user".format(a)))
 
 @bot.event
 async def on_message(message):
