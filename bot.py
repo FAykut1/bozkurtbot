@@ -294,9 +294,9 @@ async def on_message(message):
                         await bot.delete_message(xd2)
                     except discord.errors.NotFound or AttributeError:
                         return
-    if mesaj_gonderme >= 40:
+    if mesaj_gonderme >= 100:
         mesaj_gonderme = 0
-        await bot.send_message(message.channel, "`{}` ailesi iyi eğlenceler.".format(message.server.name))
+        await bot.send_message(message.channel, "`{}` ailesi hepinize iyi eğlenceler.".format(message.server.name))
 
     ##xp eklemek
     user_add_xp(message.server.id,message.author.id,2)
