@@ -339,19 +339,16 @@ async def bilgilerim(ctx,user:discord.Member=None):
 
 @bot.command(pass_context=True)
 async def bilgi(ctx,user:discord.Member):
-    try:
         embed = discord.Embed(title=user.name,description="Bunları buldum reis.",color=0x00ff00)
         embed.add_field(name="İsim",value=user.name)
         embed.add_field(name="ID",value=user.id)
         embed.add_field(name="Durum", value=user.status)
         embed.add_field(name="Rol", value=user.top_role)
         embed.add_field(name="Katılma Tarihi",value=user.joined_at)
-        embed.add_field(name="XP",value=get_xp(user.server.id,user.id))
 
         embed.set_thumbnail(url=user.avatar_url)
         await bot.say(embed=embed)
-    except KeyError:
-        await bot.say('Lütfen önce lol nickname giriniz. `#lol "LolNickName"` (Tırnak işareti OLMALIDIR.)')
+
 
 @bot.command()
 async def yardim():
