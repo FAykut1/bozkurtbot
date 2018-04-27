@@ -234,12 +234,12 @@ async def on_ready():
     print("I am running on " + bot.user.name)
     print(bot.user.id)
     a = 0
-    for server in bot.servers:
-        servername = server.name
-        print(servername)
-        for member in server.members:
-            if str(member.status) == 'online':
-                a+=1
+    while not bot.is_closed:
+        for server in bot.servers:
+            for member in server.members:
+                if str(member.status) == 'online':
+                    online += 1
+        await bot.close()
         
     await bot.change_presence(game=Game(name="{} online user".format(a)))
 
