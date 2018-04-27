@@ -238,7 +238,7 @@ async def on_ready():
         servername = server.name
         print(servername)
         for member in server.members:
-            if member.status == 'online':
+            if str(member.status) == 'online':
                 a+=1
         
     await bot.change_presence(game=Game(name="{} online user".format(a)))
