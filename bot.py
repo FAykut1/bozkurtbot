@@ -348,7 +348,7 @@ async def bilgi(ctx,user:discord.Member):
         embed.add_field(name="Katılma Tarihi",value=user.joined_at)
         embed.add_field(name="XP",value=get_xp(user.server.id,user.id))
         embed.add_field(name="Lol Kullanıcı Adı", value=get_user_lol_nickname(user.server.id, user.id))
-        embed.add_field(name="Ligi", value=ligogren(get_user_lol_nickname(user.server.id, user.id)))
+        
         embed.add_field(name="Para", value=get_money(user.server.id,user.id))
         embed.set_thumbnail(url=user.avatar_url)
         await bot.say(embed=embed)
