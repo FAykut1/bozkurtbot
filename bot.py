@@ -439,13 +439,25 @@ async def ban(ctx, member: discord.Member):
         await bot.say("Yetkin yok reis")
         
 @bot.command(pass_context=True)
-async def unban(ctx, member: discord.Member):
+async def unban(ctx,member:discord.Member):
     if ctx.message.author.server_permissions.administrator:
-        await bot.unban(member.server,member)
-        embed = discord.Embed(title="Kullanıcı banını kaldırdınız!",description="**{1}** tarafından ban kaldırıldı **{0}**!".format(member, ctx.message.author.display_name),color=0xff00f6)
-        await bot.say(embed=embed)
-    else:
-        await bot.say("Yetkin yok reis")
+        ban_list = await bot.get_bans(ctx.message.server)
+        await bot.say("Ban list:\n{}".format("\n".join([user.name for user in ban_list])))
+        if not ban_list:
+            await bot.say("Ban list is empty.")
+            return
+        try:
+            if member.name in ban_list:
+                await bot.unban(ctx.message.server, ban_list[-1])
+                await bot.say("Banı kaldırıldı: `{}`".format(ban_list[-1].name))
+            else:
+                await bot.say("Kişi bulunamadı: `{}`".format(member.name))
+        except discord.Forbidden:
+            await bot.say("I do not have permission to unban.")
+            return
+        except discord.HTTPException:
+            await bot.say("Unban failed.")
+            return
 
 @bot.command(pass_context=True)
 async def sil(ctx, number):
