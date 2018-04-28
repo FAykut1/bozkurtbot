@@ -334,7 +334,7 @@ async def on_message_edit(before,after):
                         await bot.delete_message(xd4)
                     except discord.errors.NotFound:
                         return
-
+    await bot.process_commands(after)
 @bot.command(pass_context=True)
 async def bilgilerim(ctx,user:discord.Member=None):
     if user is None:
