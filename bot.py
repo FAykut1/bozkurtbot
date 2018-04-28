@@ -530,7 +530,8 @@ async def status_task():
                     online += 1
                 if str(member.status) == 'idle':
                     idle += 1
-        await bot.change_presence(game=Game(name="{} online user".format(online+idle)))
+        toplam = online+idle
+        await bot.change_presence(game=Game(name="{} online user".format(toplam)))
         await asyncio.sleep(100)
 bot.loop.create_task(status_task())
 
