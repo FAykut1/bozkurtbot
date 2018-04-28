@@ -299,10 +299,6 @@ async def on_message(message):
     if mesaj_gonderme >= 100:
         mesaj_gonderme = 0
         await bot.send_message(message.channel, "`{}` ailesi hepinize iyi eğlenceler.".format(message.server.name))
-    ##guvenlik
-    if len(message.content) >= 9000:
-        await bot.ban(message.author.display_name,1)
-        await bot.send_message(message.channel,":warning:Spam yapma gerekçesiyle, {} banlanmıştır.:warning:".format(message.author.display_name))
     ##xp eklemek
     user_add_xp(message.server.id,message.author.id,2)
 
@@ -338,10 +334,7 @@ async def on_message_edit(before,after):
                         await bot.delete_message(xd4)
                     except discord.errors.NotFound:
                         return
-         ##guvenlik
-    if len(after.content) >= 4000:
-        await bot.ban(after.author.display_name,1)
-        await bot.send_message(after.channel,":warning:Spam yapma gerekçesiyle, {} banlanmıştır.:warning:".format(message.author.display_name))
+
 @bot.command(pass_context=True)
 async def bilgilerim(ctx,user:discord.Member=None):
     if user is None:
