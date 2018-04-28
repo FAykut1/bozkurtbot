@@ -521,16 +521,12 @@ async def bakiyem(ctx):
 #     else:
 #         await bot.say("Reis yetkin yok be. Olsa biliyon yani seni kırmam.")
 async def status_task():
-    online = 0
-    idle = 0
+    toplam = 0
     while True:
         for server in bot.servers:
             for member in server.members:
-                if str(member.status) == 'online':
-                    online += 1
-                if str(member.status) == 'idle':
-                    idle += 1
-        toplam = online+idle
+                toplam+=1
+
         await bot.change_presence(game=Game(name="{} online user".format(toplam)))
         await asyncio.sleep(100)
 bot.loop.create_task(status_task())
