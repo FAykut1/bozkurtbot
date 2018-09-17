@@ -1,4 +1,4 @@
-# bozkurtbot
+# Discord İçin Türkçe Bozkurt Bot
 Bozkurt yönetici botu
 
 Discord.py Türkçe Rewrite Bot
